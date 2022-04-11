@@ -15,11 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 public interface IAppUserRepository extends JpaRepository<AppUser, Integer> {
 
     // NghiaDM tìm kiếm app use theo usename
-    @Query(value = "SELECT * FROM app_users WHERE username= :username ", nativeQuery = true)
-    AppUser getAppUserByUsername(@Param("username") String username);
-
-//    @Query(value = "SELECT * FROM app_users WHERE username= :username and isEnabled = false ", nativeQuery = true)
+//    @Query(value = "SELECT * FROM app_users WHERE username= :username", nativeQuery = true)
 //    AppUser getAppUserByUsername(@Param("username") String username);
+
+    @Query(value = "SELECT * FROM app_users WHERE username= :username and is_enabled = true ", nativeQuery = true)
+    AppUser getAppUserByUsername(@Param("username") String username);
 
     // Bao
     @Query(value = "select * from app_users " +

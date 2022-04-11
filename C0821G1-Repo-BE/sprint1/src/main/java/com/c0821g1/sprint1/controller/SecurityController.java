@@ -57,6 +57,7 @@ public class SecurityController {
         MyUserDetailsImpl myUserDetails = (MyUserDetailsImpl) authentication.getPrincipal();
         // lấy token từ phương thức generateToken bên class jwtUtils đưa qua front end
         String jwtToken = jwtUtils.generateToken(myUserDetails);
+        System.out.println("token" + jwtToken);
 
 
         List<String> roles = myUserDetails.getAuthorities().stream()
